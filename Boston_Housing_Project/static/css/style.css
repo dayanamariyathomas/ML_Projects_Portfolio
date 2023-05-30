@@ -1,0 +1,85 @@
+*{
+  margin: 0;
+  /* padding: 0; */
+}
+
+
+body{
+  /* background-color:rgb(5, 48, 16); */
+  width: 100%;
+  /* margin: 0;  */
+
+
+}
+.navbar .dry{
+color: rgba(255, 228, 196, 0.644);
+}
+
+
+.login-top{
+   height: 90px;
+   background-color: rgb(0, 0, 0);
+   /* padding: 0px; */
+   display: flex;
+   align-items: center;
+   
+   border-radius: 10px;
+   
+
+   border: 2px solid rgb(231, 22, 22);
+}
+.login-top img{
+
+  height: 80px;
+  width: 80px;
+}
+.login-box{
+  height: 580px;
+  width: 450px;
+  background-color:rgb(14, 4, 4);
+  padding: 30px;
+ 
+}
+@media only screen and (min-width: 500px) {
+body {
+    background-color: rgb(174, 157, 127);
+    /* background-image:url('/images/R2.jpg'); */
+    /* height: 100%; */
+    /* background-position: center; */
+    /* background-repeat: no-repeat; */
+    /* background-size: cover;  */
+  }
+}
+
+
+.myrow .col li{
+ 
+  list-style-type: none;
+
+}
+.myrow .col li a{
+  font-size: 13px;
+  text-decoration: none;
+  line-height: 2rem;
+  color:rgb(146, 142, 142);
+}
+@media only screen and (max-width: 280px) {
+
+.form1 {
+font-size: 12px;
+}
+
+}
+.item1 img {
+ 
+  object-fit: cover;
+  /* border-radius: 20px; */
+  width:800px;
+  height:400px;
+}
+.card{
+  /* border-radius: ; */
+  height:410px;
+}
+
+

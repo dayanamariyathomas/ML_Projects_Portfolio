@@ -1,0 +1,9 @@
+body{
+    overflow: hidden;
+}
+.dark{
+    background: white;
+}
+button{
+    outline: none;
+}

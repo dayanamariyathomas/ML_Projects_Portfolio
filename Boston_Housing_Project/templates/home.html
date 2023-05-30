@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boston House Price Prediction</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="static/css/style.css">
+  <style>
+    .rounded-circle {
+      width: 150px; /* Adjust the width as per your preference */
+      height: 150px; /* Adjust the height as per your preference */}
+      /* Custom styles for buttons */
+    .form-control {
+      background-color: black;
+      color: white;
+    }
+    
+    .btn-primary {
+      background-color: red;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container-fluid bg-dark text-white py-3">
+      <div class="container">
+        <div class="d-flex align-items-center">
+          <img class="rounded-circle me-2" src="static/images/R2.jpg" alt="Logo">
+          <h3 class="m-0">Classify Me</h3>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="container py-5">
+      <div class="row">
+        <div class="col-lg-8">
+          <h2 class="mb-4">Boston House Price Prediction</h2>
+          <p>Our Boston House Price Prediction web app utilizes advanced machine learning techniques and algorithms to provide accurate predictions for the median value or price of owner-occupied homes in the Boston area. By analyzing various factors such as location, property size, number of rooms, and other relevant features, our prediction model can estimate the value of a house.</p>
+          <p>We understand the importance of accurate price predictions in the real estate market, as they can greatly impact individuals' decisions when buying or selling a property. Our web app aims to empower users with valuable insights to make informed choices regarding their real estate endeavors.</p>
+          <p>With our user-friendly interface and reliable prediction model, you can confidently predict the price of an owner-occupied house in the Boston area. Whether you are a homeowner looking to sell, a buyer searching for the perfect property, or an investor evaluating opportunities, our web app can assist you in making well-informed decisions.</p>
+          <p>Experience the convenience and accuracy of our Boston House Price Prediction web app and unlock the potential of data-driven insights in the realm of real estate. Start your journey today and discover the power of predictive analytics in understanding and navigating house prices in Boston.</p>
+        </div>
+        <div class="col-lg-4">
+          <div class="card">
+            <img class="card-img-top" src="static/images/R1.jfif" alt="Card image cap">
+            <div class="card-body">
+              <p class="card-text">Welcome to our Boston House Price Prediction web app! House prices in Boston are of great interest to individuals and the real estate market. Our web app is designed to provide accurate predictions for house prices in the Boston area.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container py-5">
+      <div class="row">
+        <div class="col">
+          <h5 class="text-center mb-4">Click here to Predict the Price</h5>
+          <form name="myform" id="myform" action="/predict" method="post" onsubmit="return validateForm()">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="CRIM" class="form-label" data-bs-toggle="tooltip" data-bs-placement="top" title="Per capita crime rate by town">CRIM</label>
+                <input type="text" name="CRIM" id="CRIM" class="form-control" placeholder="CRIM" required>
+              </div>              
+              <div class="col-md-6">
+                <label for="ZN" class="form-label" data-bs-toggle="tooltip" data-bs-placement="top" title="Proportion of residential land zoned for lots over 25,000 sq.ft">ZN</label>
+                <input type="text" name="ZN" id="ZN" class="form-control" placeholder="ZN" required>
+              </div>
+              <div class="col-md-6">
+                <label for="INDUS" class="form-label"data-bs-toggle="tooltip" data-bs-placement="top" title="Proportion of non-retail business acres per town">INDUS</label>
+                <input type="text" name="INDUS" id="INDUS" class="form-control" placeholder="INDUS" required>
+              </div>
+              <div class="col-md-6">
+                <label for="RM" class="form-label" data-bs-toggle="tooltip" data-bs-placement="top" title="Average number of rooms per dwelling">RM</label>
+                <input type="text" name="RM" id="RM" class="form-control" placeholder="RM" required>
+              </div>
+              <div class="col-md-6">
+                <label for="PTRATIO" class="form-label" data-bs-toggle="tooltip" data-bs-placement="top" title="Pupil-teacher ratio by town">PTRATIO</label>
+                <input type="text" name="PTRATIO" id="PTRATIO" class="form-control" placeholder="PTRATIO" required>
+              </div>
+              <div class="col-md-6">
+                <label for="LSTAT" class="form-label" data-bs-toggle="tooltip" data-bs-placement="top" title="% lower status of the population">LSTAT</label>
+                <input type="text" name="LSTAT" id="LSTAT" class="form-control" placeholder="LSTAT" required>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn btn-primary">Predict</button>
+              </div>
+              <h4 class="text-center mt-3" id="prediction_text">{{ prediction_text }}</h4>
+</div>
+              <div class="col-md-6 d-flex align-items-center justify-content-center">
+                <div>
+                  <img class="rounded-circle me-2" src="static/images/R2.jpg" alt="Logo">
+                  <h5 class="mt-3">Classify Me</h5>
+                  <p>Discover your housing style</p>
+                  <a href="#" class="btn btn-secondary">Learn More</a>
+                </div>
+              </div>              
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-dark text-white py-3">
+    <div class="container text-center">
+      <p class="m-0">&copy; 2023 Boston House Price Prediction. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="static/js/validation.js"></script>
+  <script>
+    // Initialize tooltips
+    var tooltips = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltips.map(function (tooltip) {
+      return new bootstrap.Tooltip(tooltip)
+    })
+  </script>
+
+</body>
+
+</html>

@@ -63,22 +63,14 @@
         <div class="col">
           <h5 class="text-center mb-4">Click here to Predict the Price</h5>
           <form name="myform" id="myform" action="/predict" method="post" onsubmit="return validateForm()">
-            <div class="row g-3">
+            <div class="row g-3">             
               <div class="col-md-6">
-                <label for="CRIM" class="form-label" data-bs-toggle="tooltip" data-bs-placement="top" title="Per capita crime rate by town">CRIM</label>
-                <input type="text" name="CRIM" id="CRIM" class="form-control" placeholder="CRIM" required>
-              </div>              
-              <div class="col-md-6">
-                <label for="ZN" class="form-label" data-bs-toggle="tooltip" data-bs-placement="top" title="Proportion of residential land zoned for lots over 25,000 sq.ft">ZN</label>
-                <input type="text" name="ZN" id="ZN" class="form-control" placeholder="ZN" required>
+                <label for="RM" class="form-label" data-bs-toggle="tooltip" data-bs-placement="top" title="Average number of rooms per dwelling">RM</label>
+                <input type="text" name="RM" id="RM" class="form-control" placeholder="RM" required>
               </div>
               <div class="col-md-6">
                 <label for="INDUS" class="form-label"data-bs-toggle="tooltip" data-bs-placement="top" title="Proportion of non-retail business acres per town">INDUS</label>
                 <input type="text" name="INDUS" id="INDUS" class="form-control" placeholder="INDUS" required>
-              </div>
-              <div class="col-md-6">
-                <label for="RM" class="form-label" data-bs-toggle="tooltip" data-bs-placement="top" title="Average number of rooms per dwelling">RM</label>
-                <input type="text" name="RM" id="RM" class="form-control" placeholder="RM" required>
               </div>
               <div class="col-md-6">
                 <label for="PTRATIO" class="form-label" data-bs-toggle="tooltip" data-bs-placement="top" title="Pupil-teacher ratio by town">PTRATIO</label>
@@ -87,6 +79,22 @@
               <div class="col-md-6">
                 <label for="LSTAT" class="form-label" data-bs-toggle="tooltip" data-bs-placement="top" title="% lower status of the population">LSTAT</label>
                 <input type="text" name="LSTAT" id="LSTAT" class="form-control" placeholder="LSTAT" required>
+              </div>
+              <div class="col-md-6">
+                <label for="NOX" class="form-label"data-bs-toggle="tooltip" data-bs-placement="top" title="Nitric oxides concentration (parts per 10 million)">NOX</label>
+                <input type="text" name="NOX" id="NOX" class="form-control" placeholder="NOX" required>
+              </div>
+              <div class="col-md-6">
+                <label for="TAX" class="form-label"data-bs-toggle="tooltip" data-bs-placement="top" title="Full-value property tax rate per $10,000">TAX</label>
+                <input type="text" name="TAX" id="TAX" class="form-control" placeholder="TAX" required>
+              </div>
+              <div class="col-md-6">
+                <label for="AGE" class="form-label"data-bs-toggle="tooltip" data-bs-placement="top" title="Proportion of owner-occupied units built prior to 1940">AGE</label>
+                <input type="text" name="AGE" id="AGE" class="form-control" placeholder="AGE" required>
+              </div>
+              <div class="col-md-6">
+                <label for="DIS" class="form-label"data-bs-toggle="tooltip" data-bs-placement="top" title="Weighted distances to five Boston employment centers">DIS</label>
+                <input type="text" name="DIS" id="DIS" class="form-control" placeholder="DIS" required>
               </div>
               <div class="col-12">
                 <button type="submit" class="btn btn-primary">Predict</button>
@@ -123,7 +131,11 @@
       return new bootstrap.Tooltip(tooltip)
     })
   </script>
-
+ <script>
+  // Update prediction text
+  var predictionText = document.getElementById("prediction_text");
+  predictionText.innerText = "{{ prediction_text }}";
+</script>
 </body>
 
 </html>
